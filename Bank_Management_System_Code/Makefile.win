@@ -1,0 +1,49 @@
+# Project: banksys
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o Acount.o Admin.o Bank.o date.o deal.o global.o View_controller.o
+LINKOBJ  = main.o Acount.o Admin.o Bank.o date.o deal.o global.o View_controller.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = banksys.exe
+CXXFLAGS = $(CXXINCS) -ansi -g3 -std=gnu++11
+CFLAGS   = $(INCS) -ansi -g3 -std=gnu++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Acount.o: Acount.cpp
+	$(CPP) -c Acount.cpp -o Acount.o $(CXXFLAGS)
+
+Admin.o: Admin.cpp
+	$(CPP) -c Admin.cpp -o Admin.o $(CXXFLAGS)
+
+Bank.o: Bank.cpp
+	$(CPP) -c Bank.cpp -o Bank.o $(CXXFLAGS)
+
+date.o: date.cpp
+	$(CPP) -c date.cpp -o date.o $(CXXFLAGS)
+
+deal.o: deal.cpp
+	$(CPP) -c deal.cpp -o deal.o $(CXXFLAGS)
+
+global.o: global.cpp
+	$(CPP) -c global.cpp -o global.o $(CXXFLAGS)
+
+View_controller.o: View_controller.cpp
+	$(CPP) -c View_controller.cpp -o View_controller.o $(CXXFLAGS)
